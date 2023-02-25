@@ -6,14 +6,14 @@ GPIO.setup(17, GPIO.OUT)
 GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
-
-while 1:
-    if GPIO.input(26):
-        print("Pin 26 is HIGH")
-        GPIO.output(17,GPIO.HIGH)
-    else:
-        print("Pin 26 is LOW")
-        GPIO.output(17,GPIO.LOW)
-    time.sleep(0.25)
-
-GPIO.cleanup()
+try:
+    while 1:
+        if GPIO.input(26):
+            print("Pin 26 is HIGH")
+            GPIO.output(17,GPIO.HIGH)
+        else:
+            print("Pin 26 is LOW")
+            GPIO.output(17,GPIO.LOW)
+        time.sleep(0.25)
+except KeyboardInterrupt: 
+    GPIO.cleanup() # cleanup all GPIO
