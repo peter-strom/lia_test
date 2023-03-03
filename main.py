@@ -41,14 +41,5 @@ class Test(unittest.TestCase):
         self.assertEqual(f.get_uart_from_irq_toggle(test_rig.irqn_usbc) , None)
 
 
-# pause before finishing test script
-
-
-#'''
-    def test_7sleep(self):
-        time.sleep(10)
-        self.assertEqual('hej','hej')
-#'''
-
 if __name__ == '__main__':
     unittest.main()
