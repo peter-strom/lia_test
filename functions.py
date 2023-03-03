@@ -1,9 +1,12 @@
-import settings
+import serial
+import uart
+
+uart = uart.init()
 
 def get_uart():
-    line = ser.readline()
-    #line = ser.read_until('\n')
-    #ser.reset_input_buffer()
+    line = uart.readline()
+    #line = uart.read_until('\n')
+    #uart.reset_input_buffer()
     #print (line)
     if line:
         line = line.decode()
