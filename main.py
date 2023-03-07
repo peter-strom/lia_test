@@ -13,7 +13,8 @@ class Test(unittest.TestCase):
         self.assertEqual(f.get_uart_from_irq_toggle(test_rig.irq_off), 'EXTI_CALLBACK: SHUTDOWN \r\n')
     
     def test_1_irq_power_supply_on(self):
-        self.assertEqual(f.get_uart_from_irq_toggle(test_rig.irq_power_supply), 'EXTI_CALLBACK: PSU\r\n')
+        self.assertEqual(f.get_uart_from_irq_toggle(test_rig.irq_power_supply), 'PSU: outlet mode\r\n')
+        #time.sleep(20) #sleep for manual testing htim2 
 
     def test_1_irq_sensor_on(self):
         self.assertEqual(f.get_uart_from_irq_toggle(test_rig.irq_sensor), 'EXTI_CALLBACK: SENSOR ALARM \r\n')
@@ -29,7 +30,7 @@ class Test(unittest.TestCase):
         self.assertEqual(f.get_uart_from_irq_toggle(test_rig.irq_off), None)
     
     def test_2_irq_power_supply_off(self):
-        self.assertEqual(f.get_uart_from_irq_toggle(test_rig.irq_power_supply), 'EXTI_CALLBACK: PSU\r\n')
+        self.assertEqual(f.get_uart_from_irq_toggle(test_rig.irq_power_supply), 'PSU: battery mode\r\n')
 
     def test_2_irq_sensor_off(self):
         self.assertEqual(f.get_uart_from_irq_toggle(test_rig.irq_sensor), None)
