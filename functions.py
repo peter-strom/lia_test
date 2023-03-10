@@ -1,5 +1,6 @@
 import serial
 import uart
+import time
 
 uart = uart.init()
 
@@ -13,6 +14,14 @@ def get_uart():
         return line
     
 def get_uart_from_irq_toggle(button):
+    button.toggle()
+    uart_msg = get_uart()
+    if uart_msg:
+        return uart_msg
+
+def get_uart_from_long_press(button,time_s):
+    button.toggle()
+    time.sleep(time_s)
     button.toggle()
     uart_msg = get_uart()
     if uart_msg:
