@@ -8,6 +8,6 @@ def init():
             parity=serial.PARITY_NONE,
             stopbits=serial.STOPBITS_ONE,
             bytesize=serial.EIGHTBITS,
-            timeout=0.1
+            timeout=0.6
             )
     return uart

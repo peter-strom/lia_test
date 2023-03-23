@@ -3,18 +3,19 @@ import time
 from gpiozero import OutputDevice, InputDevice, Button
 
 class Testrig:
-    led_on = InputDevice("BOARD19")
-    buzzer = InputDevice("BOARD21")
-    fan_control = InputDevice("BOARD23")
-    led_error = InputDevice("BOARD22")
-    operation1 = InputDevice("BOARD24")
-    operation2 = InputDevice("BOARD26")
-    operation3 = InputDevice("BOARD28")
+    led_on = InputDevice("BOARD19",pull_up = None, active_state= True)
+    buzzer = InputDevice("BOARD21",pull_up = None, active_state= True)
+    fan_control = InputDevice("BOARD38",pull_up = None, active_state= True)
+    led_error = InputDevice("BOARD23",pull_up = None, active_state= True)
+    operation1 = InputDevice("BOARD26",pull_up = None, active_state= True)
+    operation2 = InputDevice("BOARD24",pull_up = None, active_state= True)
+    operation3 = InputDevice("BOARD22",pull_up = None, active_state= True)
 
-    irq_power_supply = OutputDevice("BOARD37")
-    irq_off = OutputDevice("BOARD40")
-    irq_sreset_update = OutputDevice("BOARD38")
-    irq_sensor = OutputDevice("BOARD12")
-    irqn_usbc = OutputDevice("BOARD36", active_high=False)
+    irq_power_supply = OutputDevice("BOARD37", active_high=True, initial_value=False)
+    irq_off = OutputDevice("BOARD07", active_high=True, initial_value=False)
+    irq_sreset_update = OutputDevice("BOARD03", active_high=True, initial_value=False)
+    #irq_sensor = OutputDevice("BOARD12", active_high=True, initial_value=None)
+    #irqn_usbc = OutputDevice("BOARD36", active_high=False, initial_value=None)
+    irqn_mcu_reset = OutputDevice("BOARD05", active_high=False, initial_value=None)
 
 
